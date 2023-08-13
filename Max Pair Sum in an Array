@@ -1,0 +1,26 @@
+class Solution:
+    def md(self,m):
+        n=[0]*len(m)
+        for i in range(len(m)):
+            t=m[i]
+            mx_d=0
+            while t>0:
+                
+                mx_d=max(mx_d,t%10)
+                t=t//10
+            n[i]=mx_d
+        print(n)
+        return n
+    def maxSum(self, nums: List[int]) -> int:
+        mdgs=self.md(nums)
+        m_s=-1
+        for i in range(len(mdgs)):
+            k=mdgs[i]
+            for j in range(i+1,len(mdgs)):
+                if k==mdgs[j]:
+                    ts=nums[i]+nums[j]
+                    m_s=max(m_s,ts)
+    
+            
+        
+        return m_s
